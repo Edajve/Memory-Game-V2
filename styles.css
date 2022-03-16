@@ -177,7 +177,7 @@ table {
 
 #logoDiv {
     background-color: var(--mainBlue);
-    width: 11%;
+    width: 200px;
     height: inherit;
     position: relative;
     left: -32px;
@@ -214,4 +214,74 @@ table {
 #title {
     font-size: 1.8rem;
     color: black;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    display: inline-block
+}
+
+.instructionsTitle {
+    /* margin-bottom: 2rem;
+    display: inline-block;
+    position: relative;
+    left: 1000px;
+    justify-items: end;
+    margin-right: 500px;
+     */
+    position: relative;
+    top: -50px;
+    left: 125px;
+    font-size: 1.5rem;
+    margin-right: 200px;
+    white-space: nowrap;
+}
+
+#mainContainerDiv {
+    width: 90%;
+    height: 90vh;
+    outline: 2px solid pink;
+    display: grid;
+    grid-template-columns: [col-start]3fr [col-1] 1fr[col-end];
+    grid-template-rows: [row-start]2fr [row-1] 1fr [row-end];
+    grid-template-areas: "mainGame howTo" "mainGame advertisement";
+    /* grid-column-gap: 40px; */
+    grid-gap: 30px;
+}
+
+#gameContainer,
+#instructionsDiv,
+#advertiseDiv {
+    outline: 2px solid orange;
+}
+
+#gameContainer {
+    grid-area: mainGame;
+    display: grid;
+    grid-template-columns: [col-start] 1fr [col-1] 8fr [col-2] 1fr [col-end];
+    grid-template-areas: "sideNav mainCards score";
+}
+
+#instructionsDiv {
+    grid-area: howTo;
+}
+
+#advertiseDiv {
+    grid-area: advertisement;
+}
+
+#sideNav {
+    width: 80px;
+    height: 100%;
+    outline: 2px solid black;
+    grid-area: sideNav;
+}
+
+#cardContainer {
+    grid-area: mainCards;
+}
+
+#scoreContainer {
+    width: 120px;
+    height: 100%;
+    outline: 3px solid purple;
+    grid-area: score;
 }
