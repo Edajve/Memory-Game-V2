@@ -44,6 +44,7 @@ var createBoard = () => {
     startButton.addEventListener('click', start)
 }
 
+
 //create a start method
 function start() {
     for (let i = 0; i < cards.length; i++) {
@@ -52,9 +53,30 @@ function start() {
         currentCard.setAttribute('class', 'cards')
         let cardDiv = document.querySelector('#cardContainer')
         cardDiv.append(currentCard)
-        console.log(currentCard)
     }
     this.removeEventListener('click', start)
+    clearGame()
+
+
+}
+
+function clearGame() {
+    var welcomeText = document.querySelector('.WelcomeHeader')
+    welcomeText.style.display = 'none'
+    var pressToStart = document.querySelector('#pressStart')
+    pressToStart.style.display = 'none'
+
+    // var cards = document.querySelectorAll('.cards')
+    // console.log(cards)
+    // cards.setAttribute('animation', 'comeInTrans 3s')
+    // cards.setAttribute('animation-timing-function', 'cubic-bezier(.01, 1.39, .06, .91)')
+    // cards.setAttribute('animation-fill-mode', 'forwards)')
+
+    /*
+    animation-name: comeInTrans
+         animation-timing-function: cubic-bezier(.01, 1.39, .06, .91); */
+    /* animation-fill-mode: forwards; */
+
 }
 
 createBoard()
