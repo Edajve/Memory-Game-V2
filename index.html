@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rhodium+Libre&family=Shizuru&display=swap');
+    </style>
+
     <title>Memory Game V2</title>
 </head>
 
@@ -13,19 +17,21 @@
     <!-- navigation -->
     <nav id="navContainer" class="navContainer">
         <div id="logoDiv" class="navItems">
-            <p id="logoText" class="navText">SeventhStoneInc<span id="redCircle"></span></p>
+            <p id="logoText" class="navText mainFont">SeventhStoneInc
+                <div id="redCircle"></div>
+            </p>
         </div>
         <div id="developer" class="navItems">
-            <p class="navText">Developer</p>
+            <p class="navText secondaryFont">Developer</p>
         </div>
         <div id="projects" class="navItems">
-            <p class="navText">Projects</p>
+            <p class="navText secondaryFont">Projects</p>
         </div>
         <div id="businessInquiry" class="navItems">
-            <p class="navText">Business Inquiry</p>
+            <p class="navText secondaryFont">Business Inquiry</p>
         </div>
         <div id="joinTheTeam" class="navItems">
-            <p class="navText">Join The Team</p>
+            <p class="navText secondaryFont">Join The Team</p>
         </div>
     </nav>
 
@@ -33,17 +39,17 @@
     <main id="mainContainerDiv" class="mainContainerDiv">
 
         <!-- title -->
-        <h1 id="title" class="title">Welcome To Dajve's Game</h1>
-        <h2 id="instructionsTitle" class="instructionsTitle">How To Play</h2>
+        <h1 id="title" class="title mainFont">Welcome To Dajve's Game</h1>
+        <h2 id="instructionsTitle" class="instructionsTitle mainFont">How To Play</h2>
 
         <div id="gameContainer" class="gameContainer">
             <!-- side nav for game -->
             <div id="sideNav" class="sideNav">
                 <div id="sideListItem1" class="sideListItem">
-                    <button id="start" class="start" type="button ">Start</button>
+                    <button id="start" class="start secondaryFont" type="button ">Start</button>
                 </div>
                 <div id="sideListItem2" class="sideListItem">
-                    <button id="reset" class="reset" type="button ">Reset</button>
+                    <button id="reset" class="reset secondaryFont" type="button ">Reset</button>
                 </div>
             </div>
             <!-- cards container -->
@@ -63,10 +69,10 @@
             </div>
             <!-- score container -->
             <div id="scoreContainer" class="scoreContainer">
-                <div id="scoreItem1" class="scoreItem">Score:<span class="scoreSpan">0</span></div>
-                <div id="scoreItem2" class="scoreItem">Matched:<span class="scoreSpan">0</span></div>
-                <div id="scoreItem3" class="scoreItem">Tries:<span class="scoreSpan">0</span></div>
-                <div id="scoreItem4" class="scoreItem">P?:<span class="scoreSpan">Not P</span></div>
+                <div id="scoreItem1" class="scoreItem mainFont">Score:<span class="scoreSpan mainFont">0</span></div>
+                <div id="scoreItem2" class="scoreItem mainFont">Matched:<span class="scoreSpan mainFont">0</span></div>
+                <div id="scoreItem3" class="scoreItem mainFont">Tries:<span class="scoreSpan mainFont">0</span></div>
+                <div id="scoreItem4" class="scoreItem mainFont">P?:<span class="scoreSpan mainFont">Not P</span></div>
             </div>
         </div>
 
@@ -74,24 +80,27 @@
         <aside id="instructionsDiv" class="asideDiv instructionsDiv">
             <!-- first aside content -->
             <div id="howToWinSection" class="howToWinSection">
-                <h3 id="toWin" class="toWin h3">To Win:</h3>
-                <p id="toWinParagraph" class="toWinParagraph">Match all 12 cards with their pair. </p>
+                <h3 id="toWin" class="toWin h3 mainFont">To Win:</h3>
+                <p id="toWinParagraph" class="toWinParagraph mainFont">Match all 12 cards with their pair. </p>
             </div>
-            <!-- second aside content -->
+
             <div id="rules" class="rules">
-                <h3 id="rules" class="rules h3">Rules:</h3>
+                <h3 id="rules" class="rules h3 mainFont">Rules:</h3>
                 <ul id="listOfRules" class="ListOfRules">
-                    <li id="rule1" class="listRuleItems">5 consecutive un-matches without finding at least one pair and you automatically lose.
+                    <li id="rule1" class="listRuleItems mainFont">5 consecutive un-matches without finding at least one pair and you automatically lose.
                     </li>
-                    <li id="rule2" class="listRuleItems">After finding at least 1 pair, every three consecutive un-matches results in -1 of your score.
+                    <li id="rule2" class="listRuleItems mainFont">After finding at least 1 pair, every three consecutive un-matches results in -1 of your score.
                     </li>
-                    <li id="rule3" class="listRuleItems">
+                    <li id="rule3" class="listRuleItems mainFont">
                         If you get all paired matches without no un-matches, then you win a prize. Come holla at the CEO of this website, I got sum for you.
                     </li>
                 </ul>
             </div>
         </aside>
-        <aside id="advertiseDiv" class="asideDiv advertiseDiv"></aside>
+        <!-- second aside content -->
+        <aside id="advertiseDiv" class="asideDiv advertiseDiv">
+            <h3 class="h3 mainFont">advertisements</h3>
+        </aside>
 
     </main>
 

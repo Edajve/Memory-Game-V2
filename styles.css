@@ -1,0 +1,217 @@
+/* resets */
+
+*,
+*::before,
+ ::after {
+    box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* variables */
+
+:root {
+    font-size: 16px;
+    /* color: white; */
+    --mainGrey: #7E7E82;
+    --mainBlue: #414158;
+    --mainOrange: #EE9132;
+    --secondaryOrange: #EFB172;
+    --logoRed: #C34141;
+    --cardsBorder: 7;
+    --navBorder: 8;
+    --gameContainerBorder: 19;
+    --asideContentBorder: 10;
+    --mainFont: 'Rhodium Libre', serif;
+    --secondaryFont: 'Righteous', serif;
+}
+
+#navContainer {
+    width: 100%;
+    height: 60px;
+    background-color: var(--mainGrey);
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.navItems {
+    margin: 2rem;
+    font-size: 1.1rem;
+}
+
+#logoDiv {
+    background-color: var(--mainBlue);
+    width: 11%;
+    height: inherit;
+    position: relative;
+    left: -32px;
+    padding: 1rem;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+#redCircle {
+    background-color: var(--logoRed);
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    position: relative;
+}
+
+#developer {
+    margin-left: auto;
+}
+
+#mainContainerDiv {
+    margin-left: 2rem;
+}
+
+.mainFont {
+    font-family: var(--mainFont);
+}
+
+.secondaryFont {
+    font-family: var(--secondaryFont);
+}
+
+#title {
+    font-size: 1.8rem;
+    color: black;
+}
