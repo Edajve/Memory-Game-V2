@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Memory Game V2</title>
+</head>
+
+<body>
+    <!-- navigation -->
+    <nav id="navContainer" class="navContainer">
+        <div id="logoDiv" class="navItems">
+            <p id="logoText" class="navText">SeventhStoneInc<span id="redCircle"></span></p>
+        </div>
+        <div id="developer" class="navItems">
+            <p class="navText">Developer</p>
+        </div>
+        <div id="projects" class="navItems">
+            <p class="navText">Projects</p>
+        </div>
+        <div id="businessInquiry" class="navItems">
+            <p class="navText">Business Inquiry</p>
+        </div>
+        <div id="joinTheTeam" class="navItems">
+            <p class="navText">Join The Team</p>
+        </div>
+    </nav>
+
+    <!-- main -->
+    <main id="mainContainerDiv" class="mainContainerDiv">
+
+        <!-- title -->
+        <h1 id="title" class="title">Welcome To Dajve's Game</h1>
+        <h2 id="instructionsTitle" class="instructionsTitle">How To Play</h2>
+
+        <div id="gameContainer" class="gameContainer">
+            <!-- side nav for game -->
+            <div id="sideNav" class="sideNav">
+                <div id="sideListItem1" class="sideListItem">
+                    <button id="start" class="start" type="button ">Start</button>
+                </div>
+                <div id="sideListItem2" class="sideListItem">
+                    <button id="reset" class="reset" type="button ">Reset</button>
+                </div>
+            </div>
+            <!-- cards container -->
+            <div id="cardContainer" class="cardContainer">
+                <div id="card1" class="cards"></div>
+                <div id="card2" class="cards"></div>
+                <div id="card3" class="cards"></div>
+                <div id="card4" class="cards"></div>
+                <div id="card5" class="cards"></div>
+                <div id="card6" class="cards"></div>
+                <div id="card7" class="cards"></div>
+                <div id="card8" class="cards"></div>
+                <div id="card9" class="cards"></div>
+                <div id="card10" class="cards"></div>
+                <div id="card11" class="cards"></div>
+                <div id="card12" class="cards"></div>
+            </div>
+            <!-- score container -->
+            <div id="scoreContainer" class="scoreContainer">
+                <div id="scoreItem1" class="scoreItem">Score:<span class="scoreSpan">0</span></div>
+                <div id="scoreItem2" class="scoreItem">Matched:<span class="scoreSpan">0</span></div>
+                <div id="scoreItem3" class="scoreItem">Tries:<span class="scoreSpan">0</span></div>
+                <div id="scoreItem4" class="scoreItem">P?:<span class="scoreSpan">Not P</span></div>
+            </div>
+        </div>
+
+        <!-- aside content -->
+        <aside id="instructionsDiv" class="asideDiv instructionsDiv">
+            <!-- first aside content -->
+            <div id="howToWinSection" class="howToWinSection">
+                <h3 id="toWin" class="toWin h3">To Win:</h3>
+                <p id="toWinParagraph" class="toWinParagraph">Match all 12 cards with their pair. </p>
+            </div>
+            <!-- second aside content -->
+            <div id="rules" class="rules">
+                <h3 id="rules" class="rules h3">Rules:</h3>
+                <ul id="listOfRules" class="ListOfRules">
+                    <li id="rule1" class="listRuleItems">5 consecutive un-matches without finding at least one pair and you automatically lose.
+                    </li>
+                    <li id="rule2" class="listRuleItems">After finding at least 1 pair, every three consecutive un-matches results in -1 of your score.
+                    </li>
+                    <li id="rule3" class="listRuleItems">
+                        If you get all paired matches without no un-matches, then you win a prize. Come holla at the CEO of this website, I got sum for you.
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <aside id="advertiseDiv" class="asideDiv advertiseDiv"></aside>
+
+    </main>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
