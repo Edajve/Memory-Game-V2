@@ -326,7 +326,8 @@ div span {
     background-color: var(--mainOrange);
     box-shadow: 10px 10px 18px black;
     border-radius: var(--cardsBorder);
-    animation: comeInTrans 3s;
+    animation-name: comeInTrans;
+    animation-duration: 3s;
     animation-timing-function: cubic-bezier(.01, 1.39, .06, .91);
     animation-fill-mode: forwards;
 }
@@ -339,10 +340,6 @@ div span {
     /* load animation  */
     animation: titleLoad 3s;
     animation-timing-function: cubic-bezier(1, -0.04, 0.58, 1);
-    /* Take Away animation */
-    /* animation: takeAwayTrans 3s; */
-    /* animation-timing-function: cubic-bezier(.01, 1.39, .06, .91); */
-    /* animation-fill-mode: forwards; */
 }
 
 @keyframes titleLoad {
@@ -362,6 +359,15 @@ div span {
     }
 }
 
+@keyframes comeInTrans {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1)
+    }
+}
+
 @keyframes takeAwayTrans {
     0% {
         transform: scale(1);
@@ -371,12 +377,15 @@ div span {
     }
 }
 
-@keyframes comeInTrans {
+@keyframes resetTransition {
     0% {
+        transform: scale(1);
+    }
+    50% {
         transform: scale(0);
     }
     100% {
-        transform: scale(1)
+        transform: scale(1);
     }
 }
 
@@ -388,8 +397,6 @@ div span {
     font-size: 1rem;
     transition: 0.7s;
     transition-timing-function: cubic-bezier(0.04, 0.75, 0.28, 1.04);
-    /* animation-fill-mode: forwards; */
-    /* animation-name: ; */
 }
 
 .asideDiv {
@@ -429,6 +436,11 @@ li {
     width: 100%;
     height: 85px;
     background-color: var(--secondaryOrange);
+}
+
+.resetAnimation {
+    animation-name: resetTransition;
+    transition-property: transform;
 }
 
 #reset {
