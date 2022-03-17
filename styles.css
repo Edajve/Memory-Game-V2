@@ -389,6 +389,18 @@ div span {
     }
 }
 
+@keyframes resetTransition2 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 #pressStart {
     position: relative;
     top: 7rem;

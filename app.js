@@ -39,27 +39,23 @@ const cards = [{
 cards.sort(() => 0.5 - Math.random())
 var reset = false
 var counter = 0
-var hasStarted = false
+var hasStarted = true
 
 var createBoard = () => {
     var parentDiv = document.querySelector('#gameContainer')
     parentDiv.addEventListener('click', e => {
-        if (e.target.id == 'start') {
+        if (e.target.id == 'start' && hasStarted == true) {
             start()
         } else if (e.target.id == 'pressStart') {
             start()
         } else if (e.target.id == 'reset') {
             reset = true
             resetBoard()
-
         }
     })
 }
 
-
-//create a start method
 function start() {
-    hasStarted = true
     if (counter < 1 && hasStarted == true) {
         counter++
         for (let i = 0; i < cards.length; i++) {
@@ -72,8 +68,8 @@ function start() {
         this.removeEventListener('click', start)
         clearBoard()
     }
+    hasStarted = false
 }
-
 
 function clearBoard() {
     var welcomeText = document.querySelector('.WelcomeHeader')
@@ -83,38 +79,27 @@ function clearBoard() {
 }
 
 function resetBoard() {
-    if (reset == true && counter < 1) {
-        //then reset board
+    reset = true
+    if (reset == true && counter <= 1) {
         counter = 0
-        counter++
+        reset = false
         let cards = document.querySelectorAll('.cards')
         cards.forEach(card => {
-            console.log("WE ARE IN HERE");
-
-
+            if (card.style.animationName != "resetTransition" && card.style.animationName != "resetTransition2") {
+                card.style.animationName = "resetTransition"
+                card.style.animationDuration = "1.5s"
+                card.style.animationTimingFunction = "cubic-bezier(.61,.17,.14,1.91)";
+            } else if (card.style.animationName == "resetTransition") {
+                card.style.animationName = "resetTransition2"
+            } else if (card.style.animationName == "resetTransition2") {
+                card.style.animationName = "resetTransition"
+            } else {
+                card.style.animationName = "resetTransition"
+            }
         })
     } else {
-        //default
+        console.log("this is in the else statement in resetBoard() function");
     }
-}
-
-function resetAnimation() {
-    let cards = document.querySelectorAll('.cards')
-    cards.forEach(card => {
-        //when user clicks reset all these properties need to be replaced
-        // animation-name: comeInTrans;
-        // animation-duration: 3s;
-        // animation-timing-function: cubic-bezier(.01, 1.39, .06, .91);
-        // animation-fill-mode: forwards;
-        card.style.animationName = "resetTransition"
-        card.style.animationDuration = "1.5s"
-        card.style.animationTimingFunction = "cubic-bezier(.61,.17,.14,1.91)";
-        // cubic-bezier(.49,.02,.59,.97)
-        card.style.animationFillMode = "forwards"
-
-    })
-
-
 }
 
 createBoard()
