@@ -1,58 +1,52 @@
 var arrayOfCards = [{
     name: 'Adidas',
-    img: 'images.png'
+    img: '/images/adidas.png'
 }, {
     name: 'Balenciaga',
-    img: 'balenciaga.png'
+    img: '/images/balenciaga.png'
 }, {
     name: 'Fear Of God',
-    img: 'foG.png'
+    img: '/images/foG.png'
 }, {
     name: 'Gallery Debt',
-    img: 'galleryDebt.jpeg'
+    img: '/images/galleryDebt.jpeg'
 }, {
     name: 'Nike',
-    img: 'nike.png'
+    img: '/images/nike.png'
 }, {
     name: 'Off White',
-    img: 'offWhite.png'
+    img: '/images/offWhite.png'
 }, {
     name: 'Adidas',
-    img: 'images.png'
+    img: '/images/adidas.png'
 }, {
     name: 'Balenciaga',
-    img: 'balenciaga.png'
+    img: '/images/balenciaga.png'
 }, {
     name: 'Fear Of God',
-    img: 'foG.png'
+    img: '/images/foG.png'
 }, {
     name: 'Gallery Debt',
-    img: 'galleryDebt.jpeg'
+    img: '/images/galleryDebt.jpeg'
 }, {
     name: 'Nike',
-    img: 'nike.png'
+    img: '/images/nike.png'
 }, {
     name: 'Off White',
-    img: 'offWhite.png'
+    img: '/images/offWhite.png'
 }]
 
 shuffle(arrayOfCards)
-console.log(arrayOfCards);
-
-
 var reset = false
 var counter = 0
 var hasStarted = true
 
-//game stats
 var score = 0
 var matched = 0
 var tries = 0
 var isP = false
 var chosenCards = []
 
-
-//randomize array
 function shuffle(array) {
     let currentIndex = array.length,
         randomIndex;
@@ -81,19 +75,71 @@ var createBoard = () => {
             reset = true
             resetBoard()
         } else if (e.target.className == 'cards') {
-            //flip the card of which ever image is under that specific card
-            //then add that card to an empty array called chosenCards
-            //then add a increment to tries variable
+            flipCard(e.target)
+            chosenCards.push(e.target)
+            if (chosenCards.length < 3) {
+                updateStatus()
+                setTimeout(unFlipCards, 1500)
+                setTimeout(() => {
+                    chosenCards = []
+                }, 1500)
+            }
         }
     })
 }
+
+function updateStatus() {
+    if (chosenCards.length == 2) {
+        tries++
+        document.getElementById('spanForTries').textContent = tries
+    }
+    if (chosenCards[0].currentSrc == chosenCards[1].currentSrc) {
+        score++
+        document.getElementById('spanForScore').textContent = score
+        matched++
+        document.getElementById('spanForMatched').textContent = matched
+        isP = true
+
+        if (isP) {
+            document.getElementById('spanForP').textContent = 'You P'
+        } else {
+            document.getElementById('spanForP').textContent = 'Not P'
+        }
+    }
+}
+
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+        currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+}
+
+function unFlipCards() {
+    if (chosenCards[0].currentSrc == chosenCards[1].currentSrc) {
+        chosenCards[0].style.position = 'relative'
+        chosenCards[1].style.position = 'relative'
+        chosenCards[0].style.visibility = 'hidden'
+        chosenCards[1].style.visibility = 'hidden'
+    } else {
+        chosenCards[0].setAttribute('src', '/images/orange.png')
+        chosenCards[1].setAttribute('src', '/images/orange.png')
+    }
+}
+
+function flipCard(target) {
+    let images = document.querySelectorAll('img')
+    images[target.id].src = arrayOfCards[target.id].img;
+}
+
 
 function start() {
     if (counter < 1 && hasStarted == true) {
         counter++
         for (let i = 0; i < arrayOfCards.length; i++) {
-            let currentCard = document.createElement('div')
-            currentCard.setAttribute('id', 'card' + i)
+            let currentCard = document.createElement('img')
+            currentCard.setAttribute('id', i)
             currentCard.setAttribute('class', 'cards')
             let cardDiv = document.querySelector('#cardContainer')
             cardDiv.append(currentCard)
@@ -104,14 +150,13 @@ function start() {
     hasStarted = false
 }
 
-//to clear the welcome text
 function clearBoard() {
     var welcomeText = document.querySelector('.WelcomeHeader')
     welcomeText.style.display = 'none'
     var pressToStart = document.querySelector('#pressStart')
     pressToStart.style.display = 'none'
 }
-//add either event listeners or put an event listener on the parent div
+
 function resetBoard() {
     reset = true
     if (reset == true && counter <= 1) {
@@ -130,13 +175,11 @@ function resetBoard() {
             } else {
                 card.style.animationName = "resetTransition"
             }
-        })
 
-        //YOU WHERE WORKING ON THIS RIGHT HERE, THE COMPUTER DOESNT RECOGNIZE THE sort() , INSIDE OUT generateRandom()
-        //have to find out why
-        shuffle(arrayOfCards)
-            // console.log(cardDivs);
-        console.log(arrayOfCards);
+            //TODOS: WORK ON RESET BUTTON
+            unFlipCards()
+
+        })
     } else {
         console.error("this is in the else statement in resetBoard() function");
     }
